@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-const logos = Array.from({ length: 20 }, (_, i) => ({
+const logos = Array.from({ length: 19 }, (_, i) => ({
   id: i + 1,
   src: `/logos/${i + 1}.png`,
 }))
@@ -65,26 +65,34 @@ const LogoGallery = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-12"
+          className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 md:p-8"
           onClick={() => setSelectedLogo(null)}
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            className="glass-effect rounded-3xl p-8 max-w-4xl"
+            className="glass-effect rounded-2xl md:rounded-3xl p-4 md:p-8 w-full max-w-7xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-white rounded-2xl p-12">
+            <div className="bg-white rounded-xl md:rounded-2xl p-8 md:p-16">
               <img
                 src={selectedLogo.src}
                 alt={`Logo ${selectedLogo.id}`}
-                className="max-w-full max-h-[60vh] object-contain mx-auto"
+                className="w-full h-auto max-h-[80vh] object-contain mx-auto"
               />
             </div>
-            <p className="text-center text-white mt-6 text-lg">
-              Logo Design #{selectedLogo.id}
-            </p>
+            <div className="flex items-center justify-between mt-4 md:mt-6 px-2">
+              <p className="text-white text-lg md:text-xl font-semibold">
+                Logo Design #{selectedLogo.id}
+              </p>
+              <button
+                onClick={() => setSelectedLogo(null)}
+                className="glass-effect px-4 py-2 rounded-full text-white hover:bg-white/20 transition-all duration-300"
+              >
+                Close
+              </button>
+            </div>
           </motion.div>
         </motion.div>
       )}
