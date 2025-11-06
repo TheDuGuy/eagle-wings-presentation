@@ -26,25 +26,25 @@ const LogoGallery = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6">
+        <div className="flex flex-col gap-6 md:gap-8 max-w-3xl mx-auto">
           {logos.map((logo, index) => (
             <motion.div
               key={logo.id}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: index * 0.05, duration: 0.3 }}
-              whileHover={{ scale: 1.05, y: -5 }}
+              whileHover={{ scale: 1.02, y: -5 }}
               onClick={() => setSelectedLogo(logo)}
               className="cursor-pointer group"
             >
-              <div className="glass-effect rounded-2xl p-4 hover:bg-white/20 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-4 right-4 z-10">
-                  <div className="bg-gradient-to-r from-[#D4AF37] to-yellow-400 text-[#1a2b4a] px-3 py-1 rounded-full text-sm font-bold">
+              <div className="glass-effect rounded-2xl p-6 md:p-8 hover:bg-white/20 transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-6 right-6 z-10">
+                  <div className="bg-gradient-to-r from-[#D4AF37] to-yellow-400 text-[#1a2b4a] px-4 py-2 rounded-full text-base font-bold">
                     {String(logo.id).padStart(2, '0')}
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 h-64 flex items-center justify-center">
+                <div className="bg-white rounded-xl p-8 md:p-12 min-h-[300px] md:min-h-[400px] flex items-center justify-center">
                   <img
                     src={logo.src}
                     alt={`Logo ${logo.id}`}
