@@ -10,7 +10,7 @@ const LogoGallery = () => {
   const [selectedLogo, setSelectedLogo] = useState(null)
 
   return (
-    <div className="w-full h-full overflow-y-auto p-12">
+    <div className="w-full h-full overflow-y-auto p-4 md:p-8 lg:p-12">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ x: -50, opacity: 0 }}
@@ -26,7 +26,7 @@ const LogoGallery = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6">
           {logos.map((logo, index) => (
             <motion.div
               key={logo.id}

@@ -29,19 +29,19 @@ const colors = [
 
 const ColorPalette = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-12">
+    <div className="w-full h-full flex items-center justify-center p-4 md:p-8 lg:p-12">
       <div className="max-w-7xl w-full">
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-6xl font-bold mb-16 text-white border-l-8 border-[#D4AF37] pl-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-16 text-white border-l-4 md:border-l-8 border-[#D4AF37] pl-3 md:pl-6">
             Brand Color Palette
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
           {colors.map((color, index) => (
             <motion.div
               key={color.name}
