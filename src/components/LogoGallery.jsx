@@ -26,7 +26,7 @@ const LogoGallery = () => {
           </p>
         </motion.div>
 
-        <div className="flex flex-col gap-6 md:gap-8 max-w-3xl mx-auto">
+        <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
           {logos.map((logo, index) => (
             <motion.div
               key={logo.id}
