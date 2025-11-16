@@ -5,6 +5,7 @@ import AboutSlide from './components/AboutSlide'
 import ColorPalette from './components/ColorPalette'
 import LogoGallery from './components/LogoGallery'
 import Applications from './components/Applications'
+import FinalSelection from './components/FinalSelection'
 import Navigation from './components/Navigation'
 
 const slides = [
@@ -13,6 +14,7 @@ const slides = [
   { id: 2, component: ColorPalette },
   { id: 3, component: LogoGallery },
   { id: 4, component: Applications },
+  { id: 5, component: FinalSelection },
 ]
 
 function App() {
