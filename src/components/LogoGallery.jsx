@@ -1,10 +1,16 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-const logos = Array.from({ length: 19 }, (_, i) => ({
-  id: i + 1,
-  src: `/logos/${i + 1}.png`,
-}))
+const logos = Array.from({ length: 25 }, (_, i) => {
+  const id = i + 1
+  // CC Fashion logos (21-22) need black background
+  const needsDarkBg = id === 21 || id === 22
+  return {
+    id,
+    src: `/logos/${id}.png`,
+    darkBg: needsDarkBg,
+  }
+})
 
 const LogoGallery = () => {
   const [selectedLogo, setSelectedLogo] = useState(null)
@@ -22,7 +28,7 @@ const LogoGallery = () => {
             Logo Design Portfolio
           </h2>
           <p className="text-xl text-white/70 ml-8">
-            Explore 20 unique design concepts
+            Explore 25 unique design concepts
           </p>
         </motion.div>
 
@@ -44,7 +50,10 @@ const LogoGallery = () => {
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-8 md:p-12 min-h-[300px] md:min-h-[400px] flex items-center justify-center">
+                <div
+                  className="rounded-xl p-8 md:p-12 min-h-[300px] md:min-h-[400px] flex items-center justify-center"
+                  style={{ backgroundColor: logo.darkBg ? '#242424' : '#ffffff' }}
+                >
                   <img
                     src={logo.src}
                     alt={`Logo ${logo.id}`}
@@ -75,7 +84,10 @@ const LogoGallery = () => {
             className="glass-effect rounded-2xl md:rounded-3xl p-4 md:p-8 w-full max-w-7xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-white rounded-xl md:rounded-2xl p-8 md:p-16">
+            <div
+              className="rounded-xl md:rounded-2xl p-8 md:p-16"
+              style={{ backgroundColor: selectedLogo.darkBg ? '#242424' : '#ffffff' }}
+            >
               <img
                 src={selectedLogo.src}
                 alt={`Logo ${selectedLogo.id}`}
