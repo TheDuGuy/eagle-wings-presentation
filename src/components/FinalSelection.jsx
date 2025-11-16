@@ -27,7 +27,7 @@ const FinalSelection = () => {
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mb-6" />
           <p className="text-xl md:text-2xl text-white/80 mb-2">
-            CC Fashion Logo Design
+            Eagle Wings Consulting
           </p>
           <p className="text-lg text-white/60">
             Select your preferred design
