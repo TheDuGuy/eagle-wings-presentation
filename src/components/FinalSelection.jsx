@@ -66,7 +66,11 @@ const FinalSelection = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
               whileHover={{ scale: 1.03, y: -8 }}
-              onClick={() => setSelectedLogo(logo.id === selectedLogo ? null : logo.id)}
+              onClick={(e) => {
+                // Don't select if clicking on button or its children
+                if (e.target.closest('button')) return
+                setSelectedLogo(logo.id === selectedLogo ? null : logo.id)
+              }}
               onMouseEnter={() => setHoveredLogo(logo.id)}
               onMouseLeave={() => setHoveredLogo(null)}
               className="cursor-pointer group relative"
